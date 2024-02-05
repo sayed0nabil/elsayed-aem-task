@@ -1,0 +1,26 @@
+<h1>Author Bio</h1>
+<div data-sly-use.image="${'org.elsayed.core.models.Image'}"></div>
+<div data-sly-use.aemPracticeModel="${'org.elsayed.core.models.AemPracticeModel'}"></div>
+
+    <div>${image.imageTitle}</div>
+    <div data-sly-test="${image.isPublisher && aemPracticeModel.backgroundImage}">
+        <img data-sly-src="${aemPracticeModel.imagePath}" />
+    </div>
+
+
+    <div data-sly-list.item="${aemPracticeModel.navigationItems}">
+        <b data-sly-test="${itemList.first}">${item.title} :: ${item.path}</b>
+        <i data-sly-test="${itemList.last && itemList.size > 1}">${item.title} :: ${item.path}</i>
+    </div>
+
+    <div data-sly-test="${image.isAuthor}">
+        <p>Author Mode</p>
+    </div>
+
+    <p>Page Title: ${image.pageTitle}</p>
+    <p>Page Path: ${image.pagePath}</p>
+
+
+
+
+
